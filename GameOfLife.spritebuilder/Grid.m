@@ -110,33 +110,30 @@ static const int GRID_COLUMNS = 10;
 
 -(void)countNeighbors
 {
-    // iterate through the rows
-    // note that NSArray has a method 'count' that will return the number of elements in the array
-    for (int i = 0; i < [_gridArray count]; i++)
+    //iterate through the rows, note that nsarray has method coutn that returns elements
+    
+    for (int i =0; i < [_gridArray count]; i++)
     {
-        // iterate through all the columns for a given row
-        for (int j = 0; j < [_gridArray[i] count]; j++)
+     //iterate through all the columns for a given row
+        for (int j=0; j< [_gridArray[i] count]; j++)
         {
-            // access the creature in the cell that corresponds to the current row/column
+         //access the creature in the cell that corresponds to the current row column
             Creature *currentCreature = _gridArray[i][j];
             
-            // remember that every creature has a 'livingNeighbors' property that we created earlier
+        // remember that every crature has living neighbors property
             currentCreature.livingNeighbors = 0;
-            
-            // now examine every cell around the current one
-            
-            // go through the row on top of the current cell, the row the cell is in, and the row past the current cell
+        //examine every cell around the current one
+        // go through the row on top of the current cell, de row the cell it is in, and the row past the current
             for (int x = (i-1); x <= (i+1); x++)
             {
-                // go through the column to the left of the current cell, the column the cell is in, and the column to the right of the current cell
-                for (int y = (j-1); y <= (j+1); y++)
-                {
-                    // check that the cell we're checking isn't off the screen
+                // go through the column to the left of the current cell, column it is, and column past
+                for (int y = (j-1);y <= (y+1); y++){
+                    //check that the cell is not off screen
                     BOOL isIndexValid;
                     isIndexValid = [self isIndexValidForX:x andY:y];
                     
-                    // skip over all cells that are off screen AND the cell that contains the creature we are currently updating
-                    if (!((x == i) && (y == j)) && isIndexValid)
+                    //skip over all cells that are off screen and the cell that contains
+                    if (!((x==i) && (y == j)) && isIndexValid);
                     {
                         Creature *neighbor = _gridArray[x][y];
                         if (neighbor.isAlive)
@@ -146,7 +143,9 @@ static const int GRID_COLUMNS = 10;
                     }
                 }
             }
+        
         }
+        
     }
 }
 
