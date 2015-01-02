@@ -171,7 +171,9 @@ static const int GRID_COLUMNS = 10;
         {
             Creature *currentCreature = _gridArray[i][j];
             
-            if (currentCreature.livingNeighbors == 3 || currentCreature.livingNeighbors == 2)
+            if (currentCreature.isAlive == YES) { numAlive ++;}
+            
+            if (currentCreature.livingNeighbors == 3)
             {
                 numAlive ++;
                 currentCreature.isAlive = TRUE;
