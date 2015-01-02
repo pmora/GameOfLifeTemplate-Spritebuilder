@@ -134,7 +134,7 @@ static const int GRID_COLUMNS = 10;
                     isIndexValid = [self isIndexValidForX:x andY:y];
                     
                     //skip over all cells that are off screen and the cell that contains
-                    if (!((x == i) && (y == j)) && isIndexValid);
+                    if (!((x == i) && (y == j)) && isIndexValid)
                     {
                         Creature *neighbor = _gridArray[x][y];
                         if (neighbor.isAlive)
