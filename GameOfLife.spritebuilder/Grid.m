@@ -161,7 +161,7 @@ static const int GRID_COLUMNS = 10;
 
 -(void)updateCreatures {
     
-  /*  for (int i = 0; i < [_gridArray count]; i++)
+    for (int i = 0; i < [_gridArray count]; i++)
     {
         for (int j = 0; j < [_gridArray[i] count]; j++)
         {
@@ -169,15 +169,15 @@ static const int GRID_COLUMNS = 10;
             
             if (currentCreature.livingNeighbors == 3)
             {
-                currentCreature.isAlive = YES;
+                currentCreature.isAlive = TRUE;
             }
             else if (currentCreature.livingNeighbors <= 1 || currentCreature.livingNeighbors >=4)
             {
-                currentCreature.isAlive = NO;
+                currentCreature.isAlive = FALSE;
             }
             
         }
-    }*/
+    }
     
 }
 
