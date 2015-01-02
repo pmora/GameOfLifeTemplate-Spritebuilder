@@ -60,8 +60,7 @@ static const int GRID_COLUMNS = 10;
             
             _gridArray[i][j] = creature;
             
-            // makes criatures visible to test this method. to remove once knmow we fill the grid
-            creature.isAlive = YES;
+           
             
             x+= _cellWidth;
         }
@@ -69,5 +68,33 @@ static const int GRID_COLUMNS = 10;
         y+= _cellHeight;
     }
 }
+
+-(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    
+    //get the x,y coordinates of the touch
+    
+    CGPoint touchLocation = [touch locationInNode:self];
+    
+    // get the creature at that location
+    
+    Creature *creature = [self creatureForTouchPosition:touchLocation];
+    
+    // invert it's state - kill it if it's alive, bring it to life if it's dead
+    
+    creature.isAlive = !creature.isAlive;
+    
+}
+
+- (Creature *)creatureForTouchPosition:(CGPoint)touchPosition
+{
+    
+    int row = touchPosition.y / _cellHeight;
+    int column = touchPosition.x / _cellWidth;
+    
+    return _gridArray[row][column];
+    
+}
+
 
 @end
