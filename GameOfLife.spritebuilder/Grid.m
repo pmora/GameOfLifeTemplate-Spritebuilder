@@ -122,12 +122,13 @@ static const int GRID_COLUMNS = 10;
             
         // remember that every crature has living neighbors property
             currentCreature.livingNeighbors = 0;
+            
         //examine every cell around the current one
         // go through the row on top of the current cell, de row the cell it is in, and the row past the current
             for (int x = (i-1); x <= (i+1); x++)
             {
                 // go through the column to the left of the current cell, column it is, and column past
-                for (int y = (j-1);y <= (y+1); y++){
+                for (int y = (j-1);y <= (j+1); y++){
                     //check that the cell is not off screen
                     BOOL isIndexValid;
                     isIndexValid = [self isIndexValidForX:x andY:y];
